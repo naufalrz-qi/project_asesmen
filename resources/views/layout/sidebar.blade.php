@@ -1,85 +1,77 @@
-<div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-    <i class="bi bi-collection-fill fs-4"></i>
-        <span class="fs-4 ps-2">Menu Utama</span>
-    </a>
-    <hr>
-    <ul class="nav nav-pills flex-column mb-auto">
-         <li class="mb-1">
-            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 nav-link text-white"
-                data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-                <i class="bi bi-house-door-fill"></i>
-                <span class="ps-2">Home</span>
-            </button>
-            <div class="collapse show" id="home-collapse" style="">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li class="nav-link active"><a href="#" id="menu-dashboard"
-                            class="ms-3 text-white d-inline-flex text-decoration-none rounded">Dashboard</a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="mb-1">
-            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 nav-link text-white"
-                data-bs-toggle="collapse" data-bs-target="#master-collapse" aria-expanded="false">
-                <i class="bi bi-archive-fill"></i>
-                <span class="ps-2">File Master</span>
-            </button>
-            <div class="collapse" id="master-collapse" style="">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" id="menu-user"
-                            class="ms-3 nav-link text-white d-inline-flex text-decoration-none rounded">User</a></li>
-                    <li><a href="#" id="menu-produk"
-                            class="ms-3 nav-link text-white d-inline-flex text-decoration-none rounded">produk</a></li>
-                    <li><a href="#" id="menu-karyawan"
-                            class="ms-3 nav-link text-white d-inline-flex text-decoration-none rounded">Karyawan</a>
-                    </li>
-                </ul>
-            </div>
-        </li>
-        <li class="mb-1">
-            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 nav-link text-white"
-                data-bs-toggle="collapse" data-bs-target="#transaksi-collapse" aria-expanded="false">
-                File Transaksi
-            </button>
-            <div class="collapse" id="transaksi-collapse" style="">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="#"
-                            class="ms-3 nav-link text-white d-inline-flex text-decoration-none rounded">Coming Soon</a>
-                    </li>
-                </ul>
-            </div>
-        </li>
-        <li class="mb-1">
-            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 nav-link text-white"
-                data-bs-toggle="collapse" data-bs-target="#laporan-collapse" aria-expanded="false">
-                File Laporan
-            </button>
-            <div class="collapse" id="laporan-collapse" style="">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="#"
-                            class="ms-3 nav-link text-white d-inline-flex text-decoration-none rounded">Coming Soon</a>
-                    </li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-    <hr>
-    <div class="dropdown">
-        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="" width="32" height="32"
-                class="rounded-circle me-2">
-            <strong>mdo</strong>
+<nav class="sidebar">
+    <div class="sidebar-header">
+        <a href="{{ route('dashboard') }}" class="sidebar-brand">
+            CN<span>PLUS</span>
         </a>
-        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-            <li><a class="dropdown-item" href="#">New project...</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li>
-                <hr class="dropdown-divider">
+        <div class="sidebar-toggler not-active">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="sidebar-body">
+        <ul class="nav">
+            <li class="nav-item">
+                <a href="" class="nav-link">
+                    <i class="link-icon" data-feather="home"></i>
+                    <span class="link-title">Home</span>
+                </a>
             </li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#master" role="button" aria-expanded="false"
+                    aria-controls="emails">
+                    <i class="link-icon" data-feather="box"></i>
+                    <span class="link-title">File Master</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="master">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">User</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('produk.index') }}" class="nav-link">Produk</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('kelompok_produk.index') }}" class="nav-link">Kelompok Produk</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Karyawan</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#transfer" role="button" aria-expanded="false"
+                    aria-controls="emails">
+                    <i class="link-icon" data-feather="server"></i>
+                    <span class="link-title">File Transfer</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="transfer">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Coming Soon</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#laporan" role="button" aria-expanded="false"
+                    aria-controls="emails">
+                    <i class="link-icon" data-feather="edit-2"></i>
+                    <span class="link-title">File Laporan</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="laporan">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Coming Soon</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
         </ul>
     </div>
-</div>
-<div class="b-example-divider b-example-vr"></div>
+</nav>

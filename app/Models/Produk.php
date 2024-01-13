@@ -10,8 +10,6 @@ class Produk extends Model
     use HasFactory;
     protected $table = 'produk';
     protected $guarded = [];
-    protected $primaryKey = 'kode_produk';
-    protected $keyType = 'string';
 
     public function kelompokProduk()
         {

@@ -12,10 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('produk', function (Blueprint $table) {
-            $table->string('kode_produk', 15)->primary();
+            $table->id();
+            $table->string('kode_produk', 15)->unique();
             $table->string('nama_produk', 30);
-            $table->decimal('harga_beli', 10, 2);
-            $table->decimal('harga_jual', 10, 2);
+            $table->double('harga_beli');
+            $table->double('harga_jual');
             $table->enum('status_produk', ['tunai', 'kredit', 'konsinyasi']);
 
             // Menambah foreign key untuk kelompok_produk
