@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth','role:admin'])->group(function () {
     Route::controller(ProdukController::class)->group(function () {
+        Route::post('/produk/search', 'search')->name('produk.search');
         Route::get('/produk', 'index')->name('produk.index');
         Route::get('/produk/create', 'create')->name('produk.create');
         Route::post('/store/produk', 'store')->name('produk.store');

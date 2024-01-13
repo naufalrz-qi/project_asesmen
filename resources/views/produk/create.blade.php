@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <h6 class="card-title">Tambah Data Produk</h6>
 
-                        <form class="forms-sample" method="POST" action="{{ route('produk.store') }}">
+                        <form id="produkForm" class="forms-sample" method="POST" action="{{ route('produk.store') }}">
                             @csrf
                             <div class="row mb-3">
                                 <div class="col-md-6">
@@ -23,7 +23,7 @@
                                         is-invalid
                                         @enderror"
                                             name="kode_produk" maxlength="15"/>
-                                        <a class="btn btn-primary"><i data-feather="search"></i></a>
+                                        <a onclick="cari()" class="btn btn-primary"><i data-feather="search"></i></a>
                                     </div>
 
                                     @error('kode_produk')
@@ -142,4 +142,15 @@
 
     </div>
 
+@endsection
+@section('script')
+<script>
+    function cari() {
+        // Change the form action to the search route
+        $('#produkForm').attr('action', '{{ route('produk.search') }}');
+
+        // Submit the form
+        $('#produkForm').submit();
+    }
+</script>
 @endsection

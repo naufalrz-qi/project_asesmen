@@ -130,4 +130,17 @@ class ProdukController extends Controller
         );
         return redirect()->route('produk.index')->with($notification);
     }
+
+    public function search(Request $request)
+    {
+        $kodeProduk = $request->input('kode_produk');
+        $produk = Produk::where('kode_produk', $kodeProduk)->first();
+
+        if ($produk) {
+            return redirect()->to(url('/edit/produk/' . $produk->id ));
+        } else {
+            // Product not found, proceed to create a new one
+            return redirect()->route('produk.create')->with('kode_produk', $kodeProduk);
+        }
+    }
 }
